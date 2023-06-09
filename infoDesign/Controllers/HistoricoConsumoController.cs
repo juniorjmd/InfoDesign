@@ -40,7 +40,7 @@ namespace infoDesign.Controllers
                     List<vw_HistoricoConsumos> hist = _contenedorTrabajo.vwHistoricoConsumo.GetAll(filter, orderBy, null, limit).ToList();
 
 
-                    return Ok(Json(_contenedorTrabajo.vwHistoricoConsumo.ObtenerHistoriaPorTipoUsuario(hist)));
+                    return Ok(_contenedorTrabajo.vwHistoricoConsumo.ObtenerHistoriaPorTipoUsuario(hist));
 
                 }
                 return BadRequest("rango invalido");
@@ -64,7 +64,7 @@ namespace infoDesign.Controllers
                     List<vw_HistoricoConsumos> hist =  _contenedorTrabajo.vwHistoricoConsumo.GetAll(filter, orderBy , null , limit).ToList();
 
                                                                                                                                                            
-                    return Ok(Json(_contenedorTrabajo.vwHistoricoConsumo.ObtenerHistorialLineas(hist)));
+                    return Ok(_contenedorTrabajo.vwHistoricoConsumo.ObtenerHistorialLineas(hist));
 
                 }
                 return BadRequest("rango invalido");
@@ -102,7 +102,7 @@ namespace infoDesign.Controllers
                         })
                         .ToList();
 
-                    return Ok(Json(resultados));
+                    return Ok(resultados);
 
                 }
                 return BadRequest("rango invalido");

@@ -50,13 +50,13 @@ namespace infoDesign.Controllers
         /**/
 
         [HttpGet("[action]")]
-        public IActionResult ConsumoPorTramos( DateTime fechaInicial, DateTime fechaFinal)
+        public IActionResult ConsumoPorTramos([FromQuery] RangoDeFecha rango)
         {
             try
             {
                 if (ModelState.IsValid)
                 { 
-                    Expression<Func<vw_HistoricoConsumos, bool>> filter = h => h.fecha >= fechaInicial && h.fecha >= fechaFinal;
+                    Expression<Func<vw_HistoricoConsumos, bool>> filter = h => h.fecha >= rango.fechaInicial && h.fecha >= rango.fechaFinal;
                     Func<IQueryable<vw_HistoricoConsumos>, IOrderedQueryable<vw_HistoricoConsumos>> orderBy = q => q.OrderBy(consumo => consumo.idLinea).ThenBy(consumo => consumo.fecha);
                     int limit = 1000;
 
